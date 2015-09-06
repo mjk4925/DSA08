@@ -39,7 +39,12 @@ void AppClass::ProcessKeyboard(void)
 #pragma endregion
 
 #pragma region Other Actions
-	ON_KEY_PRESS_RELEASE(Escape,NULL,PostMessage(m_pWindow->GetHandler(), WM_QUIT, NULL, NULL))
+	ON_KEY_PRESS_RELEASE(Escape, NULL, PostMessage(m_pWindow->GetHandler(), WM_QUIT, NULL, NULL))
+	ON_KEY_PRESS_RELEASE(F1, NULL, m_pMesh->GenerateCone(1.0f, 1.0f, 12, MEGREEN))
+	ON_KEY_PRESS_RELEASE(F2, NULL, m_pMesh->GenerateCylinder(1.0f, 2.0f, 7, MEBLUE))
+	ON_KEY_PRESS_RELEASE(F3, NULL, m_pMesh->GenerateTube(1.0f, 0.7f, 2.0f, 7, MEYELLOW))
+	ON_KEY_PRESS_RELEASE(F4, NULL, m_pMesh->GenerateSphere(1.0f, 3, MERED))
+	ON_KEY_PRESS_RELEASE(F5, NULL, m_pMesh->GenerateCube(1.0f, MEWHITE))
 #pragma endregion
 }
 void AppClass::ProcessMouse(void)

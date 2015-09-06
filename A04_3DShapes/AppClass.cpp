@@ -4,7 +4,7 @@ void AppClass::InitApplication(void)
 	//Using Base InitApplication method
 	super::InitApplication();
 	//Renaming the application
-	m_pSystem->WindowName = "3D Shapes";
+	m_pSystem->WindowName = "YOUR LASTNAME, YOUR NAME - 3D Shapes";
 }
 
 void AppClass::InitUserVariables(void)
@@ -21,7 +21,10 @@ void AppClass::InitUserVariables(void)
 	//Reserve Memory for a MyMeshClass object
 	m_pMesh = new MyPrimitive();
 	m_pMesh->GenerateCube(1.0f, MEWHITE);
-	//m_pMesh->GenerateCone(3.0f, 1.0f, 10, MERED);
+	//m_pMesh->GenerateCone(1.0f, 1.0f, 12, MEGREEN);
+	//m_pMesh->GenerateCylinder(1.0f, 2.0f, 7, MEBLUE);
+	//m_pMesh->GenerateTube(1.0f, 0.7f, 2.0f, 7, MEYELLOW);
+	//m_pMesh->GenerateSphere(1.0f, 3, MERED);
 }
 
 void AppClass::Update(void)
