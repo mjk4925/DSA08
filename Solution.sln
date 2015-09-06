@@ -9,11 +9,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_Inheriting", "01_Inherit
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_SFML_Input", "02_SFML_Input\02_SFML_Input.vcxproj", "{066814B8-00E4-451C-9FB6-E1333F7661F4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_InstanceRendering", "04_InstanceRendering\04_InstanceRendering.vcxproj", "{E35DDF73-BF15-4A51-99F6-834FE270DBCE}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_MeshRendering", "03_MeshRendering\03_MeshRendering.vcxproj", "{598AB66F-08A8-4137-A212-3E7664437B2A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_ShapesStartCode", "05_ShapesStartCode\05_ShapesStartCode.vcxproj", "{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_InstanceRendering", "04_InstanceRendering\04_InstanceRendering.vcxproj", "{E35DDF73-BF15-4A51-99F6-834FE270DBCE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "A04_3DShapes", "A04_3DShapes\A04_3DShapes.vcxproj", "{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +33,14 @@ Global
 		{066814B8-00E4-451C-9FB6-E1333F7661F4}.Debug|Win32.Build.0 = Debug|Win32
 		{066814B8-00E4-451C-9FB6-E1333F7661F4}.Release|Win32.ActiveCfg = Release|Win32
 		{066814B8-00E4-451C-9FB6-E1333F7661F4}.Release|Win32.Build.0 = Release|Win32
-		{E35DDF73-BF15-4A51-99F6-834FE270DBCE}.Debug|Win32.ActiveCfg = Debug|Win32
-		{E35DDF73-BF15-4A51-99F6-834FE270DBCE}.Debug|Win32.Build.0 = Debug|Win32
-		{E35DDF73-BF15-4A51-99F6-834FE270DBCE}.Release|Win32.ActiveCfg = Release|Win32
-		{E35DDF73-BF15-4A51-99F6-834FE270DBCE}.Release|Win32.Build.0 = Release|Win32
 		{598AB66F-08A8-4137-A212-3E7664437B2A}.Debug|Win32.ActiveCfg = Debug|Win32
 		{598AB66F-08A8-4137-A212-3E7664437B2A}.Debug|Win32.Build.0 = Debug|Win32
 		{598AB66F-08A8-4137-A212-3E7664437B2A}.Release|Win32.ActiveCfg = Release|Win32
 		{598AB66F-08A8-4137-A212-3E7664437B2A}.Release|Win32.Build.0 = Release|Win32
+		{E35DDF73-BF15-4A51-99F6-834FE270DBCE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E35DDF73-BF15-4A51-99F6-834FE270DBCE}.Debug|Win32.Build.0 = Debug|Win32
+		{E35DDF73-BF15-4A51-99F6-834FE270DBCE}.Release|Win32.ActiveCfg = Release|Win32
+		{E35DDF73-BF15-4A51-99F6-834FE270DBCE}.Release|Win32.Build.0 = Release|Win32
 		{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}.Debug|Win32.ActiveCfg = Debug|Win32
 		{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}.Debug|Win32.Build.0 = Debug|Win32
 		{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}.Release|Win32.ActiveCfg = Release|Win32
