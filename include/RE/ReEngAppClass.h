@@ -102,9 +102,9 @@ private:
 		// Is this running out of Visual Studio?
 		if (IsDebuggerPresent())
 		{
-			printf("Shaders: ");
-			system("cmd.exe /C xcopy \"../Solution/Shaders\" \"Shaders\" /y /q");
+			system("cmd.exe /C xcopy \"../include/RE/Shaders\" \"Shaders\" /y /q");
 			m_pWindow->CreateConsoleWindow();
+			printf("Shaders: ");
 		}
 
 		// Get the system singleton
