@@ -68,9 +68,9 @@ public:
 
 protected:
 	/* Initialize the object's fields */
-	void Init(void);
+	virtual void Init(void);
 	/* Releases the object from memory */
-	void Release(void);
+	virtual void Release(void);
 	/* Completes the information missing to create the mesh */
 	void CompleteMesh(void);
 

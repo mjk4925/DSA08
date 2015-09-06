@@ -180,7 +180,7 @@ void MyMesh::Render(matrix4 a_mToWorld)
 	GLuint MVP = glGetUniformLocation(nProgram, "MVP");
 	GLuint v4Position = glGetAttribLocation(nProgram, "Position_b");
 	GLuint v4Color = glGetAttribLocation(nProgram, "Color_b");
-
+	
 	//Final Projection of the Camera
 	glUniformMatrix4fv(MVP, 1, GL_FALSE, glm::value_ptr(m_pCamera->GetMVP(a_mToWorld)));
 

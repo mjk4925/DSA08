@@ -4,34 +4,24 @@ void AppClass::InitApplication(void)
 	//Using Base InitApplication method
 	super::InitApplication();
 	//Renaming the application
-	m_pSystem->WindowName = "Instance Rendering - Example";
+	m_pSystem->WindowName = "3D Shapes";
 }
 
 void AppClass::InitUserVariables(void)
 {
+	//The grid is defined for XZ by default, so I will destroy it and
+	//recreate it for the XY plane or I could also just rotate it.
+	SafeDelete(m_pGrid);
+	m_pGrid = new GridClass(MEAXIS::XY);
+	m_pGrid->CompileGrid();
+
+	//Setting the camera into the right position
+	m_pCamera->SetPosition(vector3(0.0f, 0.0f, 10.0f));
+
 	//Reserve Memory for a MyMeshClass object
-	m_pMesh = new MyMesh();
-
-	m_pMesh->AddVertexPosition(vector3(0.0f, 0.0f, 0.0f));
-	m_pMesh->AddVertexPosition(vector3(5.0f, 0.0f, 0.0f));
-	m_pMesh->AddVertexPosition(vector3(0.0f, 5.0f, 0.0f));
-
-	m_pMesh->AddVertexColor(MEGREEN);
-	m_pMesh->AddVertexColor(MERED);
-	m_pMesh->AddVertexColor(MEBLUE);
-
-	m_pMesh->CompileOpenGL3X();
-
-	m_fMatrixArray = new float[m_nObjects * 16];
-	for (int nObject = 0; nObject < m_nObjects; nObject++)
-	{
-		const float* m4MVP = glm::value_ptr(
-			glm::translate(vector3(0.01f * -nObject, 0.0f, 1.0f * -nObject)) *
-			glm::rotate(MEIDENTITY, nObject * 5.0f, MEAXISZ)
-			);
-		memcpy(&m_fMatrixArray[nObject * 16], m4MVP, 16 * sizeof(float));
-	}
-
+	m_pMesh = new MyPrimitive();
+	m_pMesh->GenerateCube(1.0f, MEWHITE);
+	//m_pMesh->GenerateCone(3.0f, 1.0f, 10, MERED);
 }
 
 void AppClass::Update(void)
@@ -60,14 +50,13 @@ void AppClass::Display(void)
 
 	m_pGrid->Render(100.0f); //renders the grid with a 100 scale
 
-	m_pMesh->RenderList(m_fMatrixArray, m_nObjects);//Rendering nObjects
+	m_pMesh->Render(m_m4ArcBall);//Rendering nObjects
 
 	m_pGLSystem->GLSwapBuffers(); //Swaps the OpenGL buffers
 }
 
 void AppClass::Release(void)
 {
-	SafeDelete(m_fMatrixArray);
 	if (m_pMesh != nullptr)
 	{
 		delete m_pMesh;

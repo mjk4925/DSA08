@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_InstanceRendering", "04_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_MeshRendering", "03_MeshRendering\03_MeshRendering.vcxproj", "{598AB66F-08A8-4137-A212-3E7664437B2A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_ShapesStartCode", "05_ShapesStartCode\05_ShapesStartCode.vcxproj", "{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -39,6 +41,10 @@ Global
 		{598AB66F-08A8-4137-A212-3E7664437B2A}.Debug|Win32.Build.0 = Debug|Win32
 		{598AB66F-08A8-4137-A212-3E7664437B2A}.Release|Win32.ActiveCfg = Release|Win32
 		{598AB66F-08A8-4137-A212-3E7664437B2A}.Release|Win32.Build.0 = Release|Win32
+		{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}.Debug|Win32.Build.0 = Debug|Win32
+		{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}.Release|Win32.ActiveCfg = Release|Win32
+		{98B31854-91E4-4586-8A14-D2B0CCA2B3D5}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
