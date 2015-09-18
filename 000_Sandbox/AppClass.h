@@ -20,6 +20,12 @@ public:
 	AppClass(HINSTANCE hInstance, LPWSTR lpCmdLine, int nCmdShow) : super(hInstance, lpCmdLine, nCmdShow) {}
 
 	/*
+	InitApplication
+	Initialize ReEng variables necessary to create the window
+	*/
+	virtual void InitApplication(void);
+
+	/*
 	InitUserVariables
 	Initializes user specific variables, this is executed right after InitApplicationVariables,
 	the purpose of this member function is to initialize member variables specific for this lesson
@@ -49,6 +55,13 @@ public:
 	Manage the response of key presses and mouse position
 	*/
 	virtual void ProcessMouse(void);
+
+
+	/*
+	ProcessJoystick
+	Manage the response of gamepad controllers
+	*/
+	virtual void ProcessJoystick(void);
 
 	/*
 	Release
