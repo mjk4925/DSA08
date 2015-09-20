@@ -13,7 +13,7 @@ namespace ReEng
 //System Class
 class ReEngDLL ExampleClass
 {
-	int m_nData; //Number of elements in the list of elements
+	int m_nData = 0; //Number of elements in the list of elements
 	std::vector<int> m_lData; //list of elements
 
 public:

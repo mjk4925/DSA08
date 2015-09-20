@@ -8,7 +8,7 @@ Date: 2015/06
 #include <string>
 #include <Windows.h>
 
-#include "RE\system\MEDefinitions.h" //ReEng basic Definitions
+#include "RE\system\REDefinitions.h" //ReEng basic Definitions
 
 namespace ReEng
 {
@@ -16,17 +16,17 @@ namespace ReEng
 typedef std::string String;
 class ReEngDLL FolderSingleton
 {
-	String m_sRoot;
-	String m_sData;
-	String m_s3DS;
-	String m_sBTO;
-	String m_sPOM;
-	String m_sFBX;
-	String m_sOBJ;
-	String m_sLVL;
-	String m_sTextures;
-	String m_sShaders;
-	String m_sAddOn;
+	String m_sRoot = "";
+	String m_sData = "";
+	String m_s3DS = "";
+	String m_sBTO = "";
+	String m_sPOM = "";
+	String m_sFBX = "";
+	String m_sOBJ = "";
+	String m_sLVL = "";
+	String m_sTextures = "";
+	String m_sShaders = "";
+	String m_sAddOn = "";
 
 	static FolderSingleton* m_pInstance;
 public:

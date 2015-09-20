@@ -15,6 +15,7 @@ namespace ReEng
 class ReEngDLL TextureManagerSingleton
 {
 	std::map<String,int> m_map;//indexer
+
 public:
 	std::vector<TextureClass*> m_lTextures; //Vector of Textures
 

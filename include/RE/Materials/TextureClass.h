@@ -13,10 +13,10 @@ namespace ReEng
 
 class ReEngDLL TextureClass
 {
-	GLuint m_nTextureID;
-	SystemSingleton* m_pSystem;
-	String m_sName;
-	String m_sFileName;
+	GLuint m_nTextureID = 0;
+	SystemSingleton* m_pSystem = nullptr;
+	String m_sName = "NULL";
+	String m_sFileName = "NULL";
 public:
 	TextureClass(void); //Constructor
 	TextureClass(const TextureClass& other); //Copy Constructor

@@ -20,6 +20,7 @@ class ReEngDLL MaterialManagerSingleton
 		and provide the right accessors for it, but its call so often that it creates overhead the other way
 	*/
 	std::map<String,int> m_map; //Map of the materials
+
 public:
 	std::vector<MaterialClass*> m_lMaterial; //Materials Vector
 	

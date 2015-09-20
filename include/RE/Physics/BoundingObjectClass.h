@@ -10,15 +10,15 @@ using namespace ReEng;
 //System Class
 class ReEngDLL BoundingObjectClass 
 {
-	bool m_bVisibleOBB;		//Visibility of the Oriented Bounding Box
-	bool m_bVisibleAABB;	//Visibility of the Axis Aligned Bounding Box
-	bool m_bVisibleBS;		//Visibility of the Bounding Sphere
+	bool m_bVisibleOBB = false;		//Visibility of the Oriented Bounding Box
+	bool m_bVisibleAABB = false;	//Visibility of the Axis Aligned Bounding Box
+	bool m_bVisibleBS = false;		//Visibility of the Bounding Sphere
 
-	float m_fRadius;		//Radius of the BS
+	float m_fRadius = 0.0f;		//Radius of the BS
 
-	PrimitiveManagerSingleton* m_pPrimitiveMngr;
+	PrimitiveManagerSingleton* m_pPrimitiveMngr = nullptr;
 
-	String m_sInstance;		//The name of the instance related to this box
+	String m_sInstance = "NULL";		//The name of the instance related to this box
 
 	vector3 m_v3ColorAABB;	//Color of the Axis Aligned Bounding Box
 	vector3 m_v3ColorOBB;	//Color of the Oriented Bounding Box
@@ -203,7 +203,7 @@ public:
 	
 	/* Renders the bounding box
 		Args:
-			a_v3Color -> determinate the color of the box to be rendered, if MEDEFAULT
+			a_v3Color -> determinate the color of the box to be rendered, if REDEFAULT
 			it will render the shape in the constructed color (white) */
 	void AddToRenderList( bool bForceDraw = false );
 

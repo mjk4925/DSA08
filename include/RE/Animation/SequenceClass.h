@@ -12,13 +12,13 @@ namespace ReEng
 
 class ReEngDLL SequenceClass
 {
-	bool m_bDirectAnimation;//Secuence going from a low to a high frame number?
-	int m_nID;				//Secuence Identifier
-	int m_nFirstFrame;		//First frame of the secuence;
-	int m_nLastFrame;		//Last frame of the secuence;
-	int m_nFrameRate;		//How many frames a secuence is playing
-	int m_nFrames;			//Number of frames in this sequence;
-	String m_sName;			//Secuence Name
+	bool m_bDirectAnimation = true;//Secuence going from a low to a high frame number?
+	int m_nID = 0;					//Secuence Identifier
+	int m_nFirstFrame = 0;			//First frame of the secuence;
+	int m_nLastFrame = 0;			//Last frame of the secuence;
+	int m_nFrameRate = 0;			//How many frames a secuence is playing
+	int m_nFrames = 0;				//Number of frames in this sequence;
+	String m_sName = "NULL";		//Secuence Name
 	
 public:
 	SequenceClass();	//Constructor

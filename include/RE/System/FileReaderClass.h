@@ -12,11 +12,11 @@ namespace ReEng
 
 class ReEngDLL FileReaderClass
 {
-	SystemSingleton* m_pSystem; //System pointer
+	SystemSingleton* m_pSystem = nullptr; //System pointer
 	FILE* m_pFile; //File pointer
 
 public:
-	String m_sLine; //Line of file
+	String m_sLine = ""; //Line of file
 
 	/* constructor */
 	FileReaderClass(void);
@@ -34,16 +34,16 @@ public:
 	void Rewind(void) const;
 
 	/* Reads Files and allocates it on the string */
-	MEErrors ReadFile(String a_sFileName);
+	REERRORS ReadFile(String a_sFileName);
 	/* closes the file */
 	void CloseFile(void);
 	/* reads a line of the file and saves it in the string */
-	MEErrors ReadNextLine(bool a_bSkipComments = true);
+	REERRORS ReadNextLine(bool a_bSkipComments = true);
 	/* 
 	Removes the blank spaces of the line
 		Modified by AndrewWilkinson88@gmail.com
 	*/
-	MEErrors RemoveBlanks(char** a_szInput) const; 
+	REERRORS RemoveBlanks(char** a_szInput) const; 
 	/* Gets the first word of the line */
 	String GetFirstWord(bool a_bToUpper = false);
 

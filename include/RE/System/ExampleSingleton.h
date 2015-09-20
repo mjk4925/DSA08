@@ -13,7 +13,7 @@ namespace ReEng
 //System Class
 class ReEngDLL ExampleSingleton
 {
-	int m_nData; //number of elements in the list
+	int m_nData = 0; //number of elements in the list
 	static ExampleSingleton* m_pInstance; // Singleton pointer
 	std::vector<int> m_lData; //list of elements
 public:

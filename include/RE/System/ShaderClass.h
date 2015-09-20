@@ -13,10 +13,10 @@ namespace ReEng
 
 class ReEngDLL ShaderClass
 {
-	String m_sProgramName;
-	String m_sVertexShaderName;
-	String m_sFragmentShaderName;
-	GLuint m_nProgram;
+	String m_sProgramName = "NULL";
+	String m_sVertexShaderName = "NULL";
+	String m_sFragmentShaderName = "NULL";
+	GLuint m_nProgram = 0;
 public:
 	ShaderClass(void);
 	ShaderClass(const ShaderClass& other);

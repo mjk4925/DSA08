@@ -12,8 +12,8 @@ namespace ReEng
 
 class ReEngDLL FrameClass
 {
-	bool m_bKeyframe;
-	bool m_bVisible;
+	bool m_bKeyframe = true;
+	bool m_bVisible = true;
 	vector3 m_v3Translation;
 	vector3 m_v3Rotation;
 	vector3 m_v3Scale;

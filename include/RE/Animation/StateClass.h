@@ -14,11 +14,11 @@ namespace ReEng
 class ReEngDLL StateClass
 {
 	
-	bool m_bTransitionState;//Is this a transition state
-	bool m_bRepeatSequence;	//Does the sequence repeats
-	bool m_bBreakableState;//Can I break out of this state without finishing the animation?
-	int m_nSequence;		//Sequence being played
-	int m_nExits;			//Number of exits of this state
+	bool m_bTransitionState = false;//Is this a transition state
+	bool m_bRepeatSequence	= true;	//Does the sequence repeats
+	bool m_bBreakableState = true;	//Can I break out of this state without finishing the animation?
+	int m_nSequence = 0;			//Sequence being played
+	int m_nExits = 0;				//Number of exits of this state
 	
 	std::vector<StateClass*> m_lExit;//Exits of the state
 

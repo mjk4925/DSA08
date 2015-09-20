@@ -16,8 +16,8 @@ namespace ReEng
 class ReEngDLL LightManagerSingleton
 {
 	//Private Fields
-	int m_nLights;		//Number of Lights
-	float m_fAmbient;	//Ambient power
+	int m_nLights = 0;		//Number of Lights
+	float m_fAmbient = 0.0f;	//Ambient power
 	static LightManagerSingleton* m_pInstance; // Singleton
 	std::vector<LightClass*> m_lLight; //vector of lights
 

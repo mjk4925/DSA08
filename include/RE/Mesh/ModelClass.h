@@ -18,24 +18,24 @@ namespace ReEng
 
 class ReEngDLL ModelClass
 {	
-	bool m_bLoaded;		//Loaded flag
-	bool m_bBinded;		//Binded flag
-	bool m_bVisible;	//Visibility flag
-	bool m_bCollidable;	//Collidable flag
+	bool m_bLoaded = false;		//Loaded flag
+	bool m_bBinded = false;		//Binded flag
+	bool m_bVisible = true;	//Visibility flag
+	bool m_bCollidable = false;	//Collidable flag
 
-	int m_nMaterials;	//number of materials
-	int m_nGroups;		//Number of groups
-	int m_nFrames;		//Number of frames
-	int m_nStates;		//Number of states
-	int m_nSequences;	//Number of sequences
-	int m_nHP;			//Hit point of the model
+	int m_nMaterials = 0;	//number of materials
+	int m_nGroups = 0;		//Number of groups
+	int m_nFrames = 0;		//Number of frames
+	int m_nStates = 0;		//Number of states
+	int m_nSequences = 0;	//Number of sequences
+	int m_nHP = 1;			//Hit point of the model
 
-	SystemSingleton* m_pSystem;	//Pointer to the system
-	MaterialManagerSingleton* m_pMatMngr;	//Pointer to the Material Manager
-	std::thread* m_Thread;	//Thread on which the model is loading
-	BoundingObjectClass* m_pBO;	//Bounding Object
+	SystemSingleton* m_pSystem = nullptr;	//Pointer to the system
+	MaterialManagerSingleton* m_pMatMngr = nullptr;	//Pointer to the Material Manager
+	std::thread* m_Thread = nullptr;	//Thread on which the model is loading
+	BoundingObjectClass* m_pBO = nullptr;	//Bounding Object
 
-	String m_sName;	//Name of the Model
+	String m_sName = "NULL";	//Name of the Model
 		
 	std::vector<GroupClass*> m_lGroup;	//List of groups
 	std::vector<SequenceClass*> m_lSequence;	//List of sequences
@@ -58,7 +58,7 @@ public:
 	void Release(void);
 
 	/* Loads an obj file in memory */
-	MEErrors CreateLoadOBJThread(String a_sFileName);
+	REERRORS CreateLoadOBJThread(String a_sFileName);
 
 	/* Swaps the information of one model object into another */
 	void Swap(ModelClass& other);
@@ -134,21 +134,21 @@ public:
 	BoundingObjectClass* GetBoundingObject(int a_nFrame = -1);
 
 	/* Loads a model from an obj file*/
-	MEErrors LoadOBJ(String a_sFileName);
+	REERRORS LoadOBJ(String a_sFileName);
 
 private:
 	/* Initializates the model object */
 	void Init(void);
 	/* Loads the material file for this model */
-	MEErrors LoadMTL(String a_sFileName);
+	REERRORS LoadMTL(String a_sFileName);
 	/* Loads the hierarchy file for this model */
-	MEErrors LoadHIE(String a_sFileName);
+	REERRORS LoadHIE(String a_sFileName);
 	/* Loads the animation file for this model */
-	MEErrors LoadANIM(String a_sFileName);
+	REERRORS LoadANIM(String a_sFileName);
 	/* Loads the sequence file for this model */
-	MEErrors LoadSEQ(String a_sFileName);
+	REERRORS LoadSEQ(String a_sFileName);
 	/* Loads the state file for this model */
-	MEErrors LoadSTA(String a_sFileName);
+	REERRORS LoadSTA(String a_sFileName);
 
 	/* Asks the model for a group by name*/
 	GroupClass* GetGroup(String a_sName);

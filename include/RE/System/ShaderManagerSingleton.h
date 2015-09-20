@@ -15,7 +15,7 @@ namespace ReEng
 //System Class
 class ReEngDLL ShaderManagerSingleton
 {
-	int m_nShaders; //Number of shaders
+	int m_nShaders = 0; //Number of shaders
 
 	static ShaderManagerSingleton* m_pInstance; // Singleton
 	

@@ -41,7 +41,7 @@ public:
 	void GenerateSphere(float a_fRadius, int a_nSubdivisions, vector3 a_vColor);
 
 	/* Renders the primitive */
-	virtual void Render(matrix4 mToWorld = MEIDENTITY);
+	virtual void Render(matrix4 mToWorld = REIDENTITY);
 
 	/* Releases the object from memory */
 	virtual void Release(void);

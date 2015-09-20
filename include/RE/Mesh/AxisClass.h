@@ -10,11 +10,11 @@ using namespace ReEng;
 //System Class
 class ReEngDLL AxisClass 
 {
-	bool m_bVisibleOrigin;	//Visibility of the Origin of the object
-	bool m_bVisibleCenter;	//Visibility of the Center of the object
-	bool m_bVisiblePivot;	//Visibility of the Pivot of the object
+	bool m_bVisibleOrigin = false;	//Visibility of the Origin of the object
+	bool m_bVisibleCenter = false;	//Visibility of the Center of the object
+	bool m_bVisiblePivot =  false;	//Visibility of the Pivot of the object
 
-	float m_fSize;
+	float m_fSize = 0.0f;
 
 	vector3 m_v3Pivot;		//Pivot of rotation in local space
 	vector3 m_v3Centroid;	//Centroid of shape in local space
@@ -23,7 +23,7 @@ class ReEngDLL AxisClass
 	matrix4 m_mPivot;	//Pivot origin in global coordinates
 	matrix4 m_mCentroid;//Centroid in global coordinates
 
-	PrimitiveManagerSingleton* m_pPrimitiveMngr;
+	PrimitiveManagerSingleton* m_pPrimitiveMngr = nullptr;
 public:
 	/* Constructor 	*/
 	AxisClass(void);
@@ -81,7 +81,7 @@ public:
 
 	/* Renders the bounding box
 		Args:
-			a_v3Color -> determinate the color of the box to be rendered, if MEDEFAULT
+			a_v3Color -> determinate the color of the box to be rendered, if REDEFAULT
 			it will render the shape in the constructed color (white) */
 	void AddToRenderList( bool bForceDraw = false );
 

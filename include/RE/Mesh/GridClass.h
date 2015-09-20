@@ -10,13 +10,16 @@ Date: 2015/06
 namespace ReEng
 {
 
-class ReEngDLL GridClass : public MeshClass
+class ReEngDLL GridClass
 {
-	typedef MeshClass super;
+	MeshClass* m_pAxis = nullptr;
+	MeshClass* m_pGrid = nullptr;
+
+	float m_fSpots = 1000.0f; //number of spots in reticule
 
 public:
 	//Constructor
-	GridClass(int a_Axis = MEAXIS::XY | MEAXIS::XZ | MEAXIS::YZ, float a_fSpacing = 100.0f);
+	GridClass(float a_fReticuleSpots = 1000.0f);
 	//Copy Constructor
 	GridClass(const GridClass& other);
 	//Copy Assignment Operator
@@ -25,10 +28,8 @@ public:
 	//Destructor
 	~GridClass(void);
 		
-	//Renders the content of the shape
-	virtual void Render(float a_fSize = 100.0f);
-
-	void CompileGrid(void);
+	/* Renders the Grid with the specified axis and size (REAXIS::XY | REAXIS::XZ | REAXIS::YZ) */
+	virtual void Render(float a_fSize = 1.0f, int a_Axis = REAXIS::XY);
 };
 
 EXPIMP_TEMPLATE template class ReEngDLL std::vector<GridClass>;

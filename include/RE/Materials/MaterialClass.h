@@ -13,19 +13,19 @@ namespace ReEng
 
 class ReEngDLL MaterialClass
 {
-	SystemSingleton* m_pSystem;
-	TextureManagerSingleton* m_pTextureMngr;
+	SystemSingleton* m_pSystem = nullptr;
+	TextureManagerSingleton* m_pTextureMngr = nullptr;
 
-	GLuint m_nMapDiffuse;
-	GLuint m_nMapNormal;
-	GLuint m_nMapSpecular;
+	GLuint m_nMapDiffuse = 0;
+	GLuint m_nMapNormal = 0;
+	GLuint m_nMapSpecular = 0;
 
 	vector3 m_vKd;
 
-	String m_sName;
-	String m_sMapDiffuse;
-	String m_sMapNormal;
-	String m_sMapSpecular;
+	String m_sName = "NULL";
+	String m_sMapDiffuse = "NULL";
+	String m_sMapNormal = "NULL";
+	String m_sMapSpecular = "NULL";
 	
 public:
 	MaterialClass(String a_sName);
@@ -64,13 +64,13 @@ public:
 	vector3	GetDiffuse(void);
 	__declspec(property(put = SetDiffuse, get = GetDiffuse)) vector3 Kd;
 
-	MEErrors LoadDiffuse(String a_sFileName);
+	REERRORS LoadDiffuse(String a_sFileName);
 
-	MEErrors LoadNormal(String a_sFileName);
+	REERRORS LoadNormal(String a_sFileName);
 
-	MEErrors LoadSpecular(String a_sFilename);
+	REERRORS LoadSpecular(String a_sFilename);
 
-	MEErrors LoadMaps(void);
+	REERRORS LoadMaps(void);
 private:
 	void Init(void);
 };

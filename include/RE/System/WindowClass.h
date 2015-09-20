@@ -10,24 +10,24 @@ Date: 2014/05
 
 #include <windows.h>
 #include "Resource.h"
-#include "RE\system\MEDefinitions.h" //ReEng basic Definitions
+#include "RE\system\REDefinitions.h" //ReEng basic Definitions
 
 namespace ReEng
 {
 
 class ReEngDLL WindowClass
 {
-	bool m_bFullscreen; //Run in fullscreen mode?
-	bool m_bBorderless; //Run with borders?
-	bool m_bWindowCrated; //Window has been created
+	bool m_bFullscreen = false; //Run in fullscreen mode?
+	bool m_bBorderless = false; //Run with borders?
+	bool m_bWindowCrated = false; //Window has been created
 
-	int m_nWindowPosX; //Window position on screen (X)
-	int m_nWindowPosY; //Window position on screen (Y)
+	int m_nWindowPosX = 0; //Window position on screen (X)
+	int m_nWindowPosY = 0; //Window position on screen (Y)
 	
-	int m_nWidth; //Window width
-	int m_nHeight; //Window height
+	int m_nWidth = 1080; //Window width
+	int m_nHeight = 720; //Window height
 
-	int m_nCommandShow; //Number of arguments
+	int m_nCommandShow = 0; //Number of arguments
 
 	LPCWSTR m_sWindowName; //Name of the window
 	HWND m_hWindowHandler; //Window handler

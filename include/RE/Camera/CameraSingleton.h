@@ -14,19 +14,19 @@ namespace ReEng
 
 class ReEngDLL CameraSingleton
 {
-	float m_fFieldOfView;	//Field of view of the camera
-	float m_fAspectRatio;	//Aspect ratio of the view
-	float m_fNear;			//Near clipping plane
-	float m_fFar;			//Far clipping plane
+	float m_fFieldOfView = 0.0f;//Field of view of the camera
+	float m_fAspectRatio = 0.0f;//Aspect ratio of the view
+	float m_fNear = 0.01f;		//Near clipping plane
+	float m_fFar = 1000.0f;		//Far clipping plane
 
-	float m_fHeading; //Heading orientation
-	float m_fPitch; //Pitch orientation
+	float m_fHeading = 0.0f;	//Heading orientation
+	float m_fPitch = 0.0f;		//Pitch orientation
 
-	float m_fPitchRateMax; //Maximum pitch displacement
-	float m_fHeadingRateMax;//Maximum heading displacement
+	float m_fPitchRateMax = 0.0f;	//Maximum pitch displacement
+	float m_fHeadingRateMax = 0.0f;	//Maximum heading displacement
 
-	static CameraSingleton* m_pInstance;//Singleton
-	SystemSingleton* m_pSystem; //System pointer
+	static CameraSingleton* m_pInstance;	//Singleton
+	SystemSingleton* m_pSystem = nullptr;	//System pointer
 
 	vector3 m_v3Position; //CameraPosition
 	vector3 m_v3Forward; //Camera view vector

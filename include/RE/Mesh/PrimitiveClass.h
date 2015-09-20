@@ -43,9 +43,9 @@ public:
 	/* Renders the primitive asking for its rendering mode (default is GL_TRIANGLES)*/
 	virtual void Render(void);
 	/* Renders the primitive asking for the model matrix and the color */
-	virtual void Render(matrix4 a_m4ToWorld, vector3 a_v3Color = MEDEFAULT);
+	virtual void Render(matrix4 a_m4ToWorld, vector3 a_v3Color = REDEFAULT);
 	/* Renders the primitive in wireframe mode asking for the model matrix and the color */
-	virtual void RenderWire(matrix4 a_m4ToWorld, vector3 a_v3Color = MEDEFAULT);
+	virtual void RenderWire(matrix4 a_m4ToWorld, vector3 a_v3Color = REDEFAULT);
 
 private:
 	/* Compiles the object with an specific color and name */

@@ -16,15 +16,15 @@ namespace ReEng
 class ReEngDLL ModelManagerSingleton
 {
 	//Member variables
-	bool m_bVisibleOctree; //Visibility of the Octree flag
+	bool m_bVisibleOctree = false; //Visibility of the Octree flag
 
-	int m_nInstances;		//Number of instances
-	int m_nModels;			//Number of models
+	int m_nInstances = 0;		//Number of instances
+	int m_nModels = 0;			//Number of models
 
 	static ModelManagerSingleton* m_pInstance;
-	MaterialManagerSingleton* m_pMatMngr; //Material Manager pointer
-	LineManagerSingleton* m_pLineMngr;	//Line Manager Pointer
-	OctreeSingleton* m_pOctree;		//Octree pointer
+	MaterialManagerSingleton* m_pMatMngr = nullptr; //Material Manager pointer
+	LineManagerSingleton* m_pLineMngr =  nullptr;	//Line Manager Pointer
+	OctreeSingleton* m_pOctree = nullptr;		//Octree pointer
 
 	std::vector<vector4> m_lCollidingGroup; //List of colliding Objects
 	std::vector<ModelClass*> m_lModel; //Vector of Models
@@ -48,9 +48,9 @@ public:
 	/* Sets the shader program of an specific instance */
 	void SetShaderProgram(String a_sInstanceName, String a_sVertexShaderName, String a_sFragmentShaderName, String a_sShaderName);
 	/* Sets the shader program of an specific instance by name */
-	void SetShaderProgramByName(String a_sInstanceName = "ALL", String a_sShaderName = "Original", vector3 a_v3Tint = MEDEFAULT);
+	void SetShaderProgramByName(String a_sInstanceName = "ALL", String a_sShaderName = "Original", vector3 a_v3Tint = REDEFAULT);
 	/* Sets the shader program of an specific instance by index */
-	void SetShaderProgramByNumber(int a_nInstance = -1, int a_nGroup = -1, String a_sShaderName = "Original", vector3 a_v3Tint = MEDEFAULT);
+	void SetShaderProgramByNumber(int a_nInstance = -1, int a_nGroup = -1, String a_sShaderName = "Original", vector3 a_v3Tint = REDEFAULT);
 
 	/* Sets the model matrix of an specific instance finding it by name */
 	void SetModelMatrix(matrix4 a_mMatrix, String a_sInstance = "ALL", bool a_bUpdateOctree = false);
@@ -105,16 +105,8 @@ public:
 	/* Loads the specified level file */
 	void LoadLevel(String a_sFileName);
 
-	/* Loads the specified model file without using a thread (pausing the whole execution while it does) */
-	MEErrors LoadModelUnthreaded (	String a_sFileName,
-							String a_sInstanceName,
-							matrix4 a_m4ToWorld = matrix4(1.0),
-							int a_nVisibility = 1,
-							int a_nCollidable = 1,
-							int a_nState = 0); //Creates an instance of the specified model.
-
 	/* Loads the specified model file in a separate thread*/
-	MEErrors LoadModel (	String a_sFileName,
+	REERRORS LoadModel (	String a_sFileName,
 							String a_sInstanceName,
 							matrix4 a_m4ToWorld = matrix4(1.0),
 							int a_nVisibility = 1,
@@ -138,7 +130,7 @@ public:
 							String a_sSpecularTexture = "Original");
 
 	/* Loads an add-on file for the specified instance*/
-	MEErrors LoadAddOn(String a_sInstanceName, String a_sFileName);
+	REERRORS LoadAddOn(String a_sInstanceName, String a_sFileName);
 
 	/* Sets the list of octants an instance is located on */
 	void SetOctantList(std::vector<int> a_lOctant, String a_sInstance);

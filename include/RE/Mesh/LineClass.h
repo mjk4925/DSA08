@@ -29,7 +29,7 @@ public:
 	~LineClass(void);
 		
 	//Renders the content of the shape
-	void Render(vector3 a_vStart, vector3 a_vEnd, vector3 a_v3Color = MEGREEN);
+	void Render(vector3 a_vStart, vector3 a_vEnd, vector3 a_v3Color = REGREEN);
 
 	void CompileForColor(void);
 };

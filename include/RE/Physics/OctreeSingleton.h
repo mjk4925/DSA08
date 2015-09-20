@@ -14,10 +14,10 @@ namespace ReEng
 //System Class
 class ReEngDLL OctreeSingleton
 {
-	int m_nOctants;			//Number of octants in the Tree
-	int m_nMaxSubtrees;		//Maximum sublevel of the tree
-	int m_nMaxObjects;		//Maximum number of objects per octant
-	OctantClass* m_pRoot;	//Root of the Tree
+	int m_nOctants = 0;			//Number of octants in the Tree
+	int m_nMaxSubtrees = 0;		//Maximum sublevel of the tree
+	int m_nMaxObjects = 0;		//Maximum number of objects per octant
+	OctantClass* m_pRoot = nullptr;	//Root of the Tree
 	static OctreeSingleton* m_pInstance; // Singleton pointer
 
 public:

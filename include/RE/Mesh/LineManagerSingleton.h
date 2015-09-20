@@ -13,8 +13,8 @@ namespace ReEng
 //System Class
 class ReEngDLL LineManagerSingleton
 {
-	int m_nLines;//Number of lines in the manager
-	LineClass* m_pLine; //Line object
+	int m_nLines = 0;//Number of lines in the manager
+	LineClass* m_pLine = nullptr; //Line object
 	std::vector<vector3> m_lStart;	//Start of the line
 	std::vector<vector3> m_lEnd;	//Start of the line
 	std::vector<vector3> m_lColor;	//Color of the line

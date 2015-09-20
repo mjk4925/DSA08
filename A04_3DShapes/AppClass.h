@@ -26,7 +26,7 @@ public:
 	InitApplication
 	Initialize ReEng variables necesary to create the window
 	*/
-	virtual void InitApplication(void);
+	virtual void InitApplication(String a_sWindowName);
 
 	/*
 	InitUserVariables

@@ -13,7 +13,7 @@ namespace ReEng
 class ReEngDLL LightClass
 {
 	//Private Fields
-	float m_fIntensity;
+	float m_fIntensity = 0.0f;
 	vector3 m_v4Position;
 	vector3 m_vColor;
 public:

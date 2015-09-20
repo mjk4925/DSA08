@@ -18,17 +18,17 @@ class ReEngDLL OctantClass
 	/* The fields of this class will be declared as public to reduce the overhead of the accessors, thus sacrificing security over speed
 	 this shouldnt represent an issue due the fact that octants are not meant to be used as individual objects but as part of an octree class*/
 public:
-	bool m_bEmpty;	//Is the octant Empty?
-	bool m_bLeaf;	//Is the octant a leaf?
+	bool m_bEmpty = true;	//Is the octant Empty?
+	bool m_bLeaf = true;	//Is the octant a leaf?
 	
-	int m_nLevel;	//Level of the octant in the tree
-	int m_nID;		//ID of the octant
+	int m_nLevel = 0;	//Level of the octant in the tree
+	int m_nID = 0;		//ID of the octant
 	
-	float m_fSize;	//Size of the octant m_fSize^3 is its volume
+	float m_fSize = 0.0f;	//Size of the octant m_fSize^3 is its volume
 
-	OctantClass* m_pParent;	//Parent of the octant in the tree
+	OctantClass* m_pParent = nullptr;	//Parent of the octant in the tree
 	OctantClass* m_pChild[8];	//Children of the octant
-	BoundingObjectClass* m_pBO;	//Bounding object of the octant
+	BoundingObjectClass* m_pBO = nullptr;	//Bounding object of the octant
 
 	vector3 m_v3CenterG;//Center of the Octant in world coordinates
 

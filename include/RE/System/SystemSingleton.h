@@ -13,25 +13,26 @@ namespace ReEng
 //System Class
 class ReEngDLL SystemSingleton
 {
-	bool m_bWindowFullscreen; // Window Fullscreen
-	bool m_bWindowBorderless; // Window Borderless
+	bool m_bWindowFullscreen = false; // Window Fullscreen
+	bool m_bWindowBorderless = false; // Window Borderless
+	bool m_bMultithreaded = false; // Experimental mutithreaded system
 
-	int m_nWindowWidth; // Window width
-	int m_nWindowHeight; // Window height
-	int m_nWindowX; // Window Position X
-	int m_nWindowY; // Window Position Y
+	int m_nWindowWidth = 1280; // Window width
+	int m_nWindowHeight = 720; // Window height
+	int m_nWindowX = 0; // Window Position X
+	int m_nWindowY = 0; // Window Position Y
 
-	int m_nFPS; //Frames per Second
-	int m_nFrames; //Frames Passed
+	int m_nFPS = 60; //Frames per Second
+	int m_nFrames = 0; //Frames Passed
 
 	static SystemSingleton* m_pInstance; // Singleton
 
-	String m_sWindowName; // Window Name
-	String m_sAppName;
+	String m_sWindowName = "ReEng"; // Window Name
+	String m_sAppName = "Application";
 
-	DWORD m_dTimerStart; //Start time of the program
-	DWORD m_dStartingTime; //Start time of the program
-	DWORD m_dLastFPS; //Last time the time was called
+	DWORD m_dTimerStart = 0; //Start time of the program
+	DWORD m_dStartingTime = 0; //Start time of the program
+	DWORD m_dLastFPS = 0; //Last time the time was called
 
 	std::vector<DWORD> lClock;//clockls list
 	
@@ -78,6 +79,11 @@ public:
 	void SetWindowName(String a_sWindowName);
 	String GetWindowName(void);
 
+	// Window Name Property
+	__declspec(property(get = GetThreaded, put = SetThreaded)) bool Multithreaded;
+	void SetThreaded(bool a_bMultithreaded);
+	bool GetThreaded(void);
+
 	/*
 	float GetWindowRatio(void);
 		This will return the proportions of the window size in the system, from bottom to top of the window the value is 1,
@@ -96,7 +102,7 @@ public:
 	bool CountDown(float a_fTime, bool a_bRepeat = false);//counts down on the specified clock, returns true when the count is up
 
 	FolderSingleton* m_pFolder;
-	MEOptions m_RenderingContext;
+	REOptions m_RenderingContext;
 
 private:
 	SystemSingleton(void); // Constructor

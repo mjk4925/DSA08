@@ -7,7 +7,7 @@ Date: 2015/06
 
 #pragma warning( disable : 4251 )
 
-#include "RE\system\MEDefinitions.h" //ReEng basic Definitions
+#include "RE\system\REDefinitions.h" //ReEng basic Definitions
 #include "RE\system\SystemSingleton.h" //System related methods
 
 #include "RE\system\WindowClass.h" //WinAPI encapsulated methods

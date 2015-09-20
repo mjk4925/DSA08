@@ -19,28 +19,28 @@ namespace ReEng
 class ReEngDLL MeshClass
 {
 protected:
-	bool m_bBinded; //Binded flag
-	bool m_bCopy;	//Checks to see if this Mesh is a copy or the original
-	bool m_bWire;	//Checks to see if the Mesh is going to be drawn in wires
-	int m_nVertexCount; //Number of Vertices in this Mesh
-	int m_nMaterial; //Material index of this mesh
+	bool m_bBinded = false; //Binded flag
+	bool m_bCopy = false;	//Checks to see if this Mesh is a copy or the original
+	bool m_bWire = false;	//Checks to see if the Mesh is going to be drawn in wires
+	int m_nVertexCount = 0; //Number of Vertices in this Mesh
+	int m_nMaterial = 0; //Material index of this mesh
 
-	GLuint m_vao;			//OpenGL Vertex Array Object
-	GLuint m_VertexBuffer;	//OpenGL Buffer (Will hold the vertex buffer pointer)
-	GLuint m_ColorBuffer;	//OpenGL Buffer (Will hold the color buffer pointer)
-	GLuint m_UVBuffer;		//OpenGL Buffer (Will hold the UV buffer pointer)
-	GLuint m_NormalBuffer;	//OpenGL Buffer (will hold the Normal Buffer)
-	GLuint m_TangentBuffer;	//OpenGL Buffer (will hold the Tangent Buffer)
-	GLuint m_BinormalBuffer;//OpenGL Buffer (will hold the Binormal Buffer)
-	GLuint m_nShader;	//Index of the shader
-	GLuint m_nShaderO;	//Index of the original shader
+	GLuint m_vao = 0;			//OpenGL Vertex Array Object
+	GLuint m_VertexBuffer = 0;	//OpenGL Buffer (Will hold the vertex buffer pointer)
+	GLuint m_ColorBuffer = 0;	//OpenGL Buffer (Will hold the color buffer pointer)
+	GLuint m_UVBuffer = 0;		//OpenGL Buffer (Will hold the UV buffer pointer)
+	GLuint m_NormalBuffer = 0;	//OpenGL Buffer (will hold the Normal Buffer)
+	GLuint m_TangentBuffer = 0;	//OpenGL Buffer (will hold the Tangent Buffer)
+	GLuint m_BinormalBuffer = 0;//OpenGL Buffer (will hold the Binormal Buffer)
+	GLuint m_nShader = 0;	//Index of the shader
+	GLuint m_nShaderO = 0;	//Index of the original shader
 
-	CameraSingleton* m_pCamera;				//Pointer to the singleton of CameraSingleton
-	MaterialManagerSingleton* m_pMatMngr;	//Material Manager
-	LightManagerSingleton* m_pLightMngr;	//Light Manager
-	ShaderManagerSingleton* m_pShaderMngr;	//Shader Manager
+	CameraSingleton* m_pCamera = nullptr;				//Pointer to the singleton of CameraSingleton
+	MaterialManagerSingleton* m_pMatMngr = nullptr;		//Material Manager
+	LightManagerSingleton* m_pLightMngr = nullptr;		//Light Manager
+	ShaderManagerSingleton* m_pShaderMngr = nullptr;	//Shader Manager
 
-	String m_sName;	//Identifier of the Mesh
+	String m_sName = "NULL";	//Identifier of the Mesh
 	vector3 m_v3Tint; //Color modifier
 	
 	std::vector<vector3> m_lVertexPos;	//List of Vertices
@@ -72,10 +72,10 @@ public:
 	__declspec(property(get = GetBinded)) bool Binded;
 
 	/* Set the shader to the newly loaded shader */
-	void SetShaderProgram(String a_sVertexShaderName, String a_sFragmentShaderName, String a_sShaderName, vector3 a_v3Tint = MEDEFAULT);
+	void SetShaderProgram(String a_sVertexShaderName, String a_sFragmentShaderName, String a_sShaderName, vector3 a_v3Tint = REDEFAULT);
 
 	/* Sets the shader of the Shape to a loaded shader */
-	void SetShaderProgram(String a_sShaderName = "Original", vector3 a_v3Tint = MEDEFAULT);
+	void SetShaderProgram(String a_sShaderName = "Original", vector3 a_v3Tint = REDEFAULT);
 	/* Property SetShaderProgram */
 	__declspec(property(put = SetShaderProgram)) String ShaderProgram;
 

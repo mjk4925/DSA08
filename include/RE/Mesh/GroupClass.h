@@ -17,23 +17,23 @@ namespace ReEng
 
 class ReEngDLL GroupClass
 {	
-	bool m_bVisible;	//Visibility flag
-	bool m_bVisibleBO;	//Debug flag
-	bool m_bCollidable;	//Collision flag
-	bool m_bGlobalized;	//Global coordinates flag
-	bool m_bModified;	//Modified flag
+	bool m_bVisible = true;	//Visibility flag
+	bool m_bVisibleBO = false;	//Debug flag
+	bool m_bCollidable = false;	//Collision flag
+	bool m_bGlobalized = false;	//Global coordinates flag
+	bool m_bModified = false;	//Modified flag
 
-	int m_nShapes;		//number of shapes in this group
-	int m_nHP;			//Hit Points of this group
-	int m_nFrames;		//Frames in this group
+	int m_nShapes = 0;		//number of shapes in this group
+	int m_nHP = 0;			//Hit Points of this group
+	int m_nFrames = 0;		//Frames in this group
 	
-	SystemSingleton* m_pSystem;	//System pointer
-	MaterialManagerSingleton* m_pMatMngr;//Material Manager Pointer
-	MeshDrawerSingleton* m_pMeshDrawer;//Mesh Manager Pointer
-	GroupClass* m_pParent;	//Parent group pointer
-	FrameClass* m_pFrame;	//List of frames of animation in the group
-	BoundingObjectClass* m_pBO;	//Bounding Object of the group
-	AxisClass* m_pAxis;		//Axis of the group
+	SystemSingleton* m_pSystem = nullptr;	//System pointer
+	MaterialManagerSingleton* m_pMatMngr = nullptr;//Material Manager Pointer
+	MeshDrawerSingleton* m_pMeshDrawer = nullptr;//Mesh Manager Pointer
+	GroupClass* m_pParent = nullptr;	//Parent group pointer
+	FrameClass* m_pFrame = nullptr;	//List of frames of animation in the group
+	BoundingObjectClass* m_pBO = nullptr;	//Bounding Object of the group
+	AxisClass* m_pAxis = nullptr;		//Axis of the group
 	
 	String m_sName;			//Name of the group
 	String m_sParent;		//Name of the parent of the group
@@ -79,8 +79,8 @@ public:
 
 	void SwapMaterial( String a_sOldMaterialName, String a_sNewMaterialName);
 
-	void SetShaderProgram(String a_sVertexShaderName, String a_sFragmentShaderName, String a_sShaderName, vector3 a_v3Tint = MEDEFAULT);
-	void SetShaderProgram(String a_sShaderName = "Original", vector3 a_v3Tint = MEDEFAULT);
+	void SetShaderProgram(String a_sVertexShaderName, String a_sFragmentShaderName, String a_sShaderName, vector3 a_v3Tint = REDEFAULT);
+	void SetShaderProgram(String a_sShaderName = "Original", vector3 a_v3Tint = REDEFAULT);
 
 	void SetMaterial(String a_sMaterialName);
 

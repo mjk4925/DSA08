@@ -9,7 +9,7 @@ Date: 2015/06
 
 #include <GL\glew.h>
 #include <GL\wglew.h>
-#include "RE\system\MEDefinitions.h" //ReEng basic Definitions
+#include "RE\system\REDefinitions.h" //ReEng basic Definitions
 
 ReEngDLL GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path);
 

@@ -1,30 +1,22 @@
 #include "AppClass.h"
-void AppClass::InitApplication(void)
+void AppClass::InitApplication(String a_sWindowName)
 {
 	//Using Base InitApplication method
-	super::InitApplication();
-	//Renaming the application
-	m_pSystem->WindowName = "YOUR LASTNAME, YOUR NAME - 3D Shapes";
+	super::InitApplication("YOUR LASTNAME, YOUR NAME - 3D Shapes");
 }
 
 void AppClass::InitUserVariables(void)
 {
-	//The grid is defined for XZ by default, so I will destroy it and
-	//recreate it for the XY plane or I could also just rotate it.
-	SafeDelete(m_pGrid);
-	m_pGrid = new GridClass(MEAXIS::XY);
-	m_pGrid->CompileGrid();
-
 	//Setting the camera into the right position
-	m_pCamera->SetPosition(vector3(0.0f, 0.0f, 10.0f));
+	m_pCamera->SetPosition(vector3(0.0f, 0.0f, 5.0f));
 
 	//Reserve Memory for a MyMeshClass object
 	m_pMesh = new MyPrimitive();
-	m_pMesh->GenerateCube(1.0f, MEWHITE);
-	//m_pMesh->GenerateCone(1.0f, 1.0f, 12, MEGREEN);
-	//m_pMesh->GenerateCylinder(1.0f, 2.0f, 7, MEBLUE);
-	//m_pMesh->GenerateTube(1.0f, 0.7f, 2.0f, 7, MEYELLOW);
-	//m_pMesh->GenerateSphere(1.0f, 3, MERED);
+	m_pMesh->GenerateCube(1.0f, REWHITE);
+	//m_pMesh->GenerateCone(1.0f, 1.0f, 12, REGREEN);
+	//m_pMesh->GenerateCylinder(1.0f, 2.0f, 7, REBLUE);
+	//m_pMesh->GenerateTube(1.0f, 0.7f, 2.0f, 7, REYELLOW);
+	//m_pMesh->GenerateSphere(1.0f, 3, RERED);
 }
 
 void AppClass::Update(void)
@@ -51,7 +43,7 @@ void AppClass::Display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the window
 
-	m_pGrid->Render(100.0f); //renders the grid with a 100 scale
+	m_pGrid->Render(0.10f); //renders the grid with a 100 scale
 
 	m_pMesh->Render(m_m4ArcBall);//Rendering nObjects
 

@@ -1,20 +1,12 @@
 #include "AppClass.h"
-void AppClass::InitApplication(void)
+void AppClass::InitApplication(String a_sWindowName)
 {
 	//Using Base InitApplication method
-	super::InitApplication();
-	//Renaming the application
-	m_pSystem->WindowName = "LASTNAME, FIRSTNAME - 3D Transformations";
+	super::InitApplication("LASTNAME, FIRSTNAME - 3D Transformations");
 }
 
 void AppClass::InitUserVariables(void)
 {
-	//The grid is defined for XZ by default, so I will destroy it and
-	//recreate it for the XY plane or I could also just rotate it.
-	SafeDelete(m_pGrid);
-	m_pGrid = new GridClass(MEAXIS::XZ);
-	m_pGrid->CompileGrid();
-
 	// Set the camera into the initial position
 	m_pCamera->SetUpVector(vector3(0.0f, 0.0f, -1.0f));
 	m_pCamera->SetPositionAndView(vector3(0.0f, 25.0f, 0.0f), vector3(0.0f, 0.0f, 0.0f));
@@ -30,9 +22,9 @@ void AppClass::InitUserVariables(void)
 	m_pMoon = new PrimitiveClass();
 
 	//Initializing the primitives
-	m_pSun->GenerateSphere(5.936f, 5, MEYELLOW);
-	m_pEarth->GenerateTube(0.524f, 0.45f, 0.3f, 10, MEBLUE);
-	m_pMoon->GenerateTube(0.524f * 0.27f, 0.45f * 0.27f, 0.3f * 0.27f, 10, MEWHITE);
+	m_pSun->GenerateSphere(5.936f, 5, REYELLOW);
+	m_pEarth->GenerateTube(0.524f, 0.45f, 0.3f, 10, REBLUE);
+	m_pMoon->GenerateTube(0.524f * 0.27f, 0.45f * 0.27f, 0.3f * 0.27f, 10, REWHITE);
 }
 
 void AppClass::Update(void)
@@ -52,7 +44,7 @@ void AppClass::Display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the window
 
-	m_pGrid->Render(100.0f); //renders the grid with a 100 scale
+	m_pGrid->Render(1.0f, REAXIS::XZ); //renders the grid with a 100 scale
 
 	//Renders the meshes using the specified position given by the matrix and in the specified color
 	m_pSun->Render(m_m4Sun);

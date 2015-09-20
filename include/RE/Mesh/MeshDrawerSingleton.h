@@ -13,7 +13,7 @@ namespace ReEng
 {
 struct ReEngDLL MeshHandler
 {
-	int m_nInstances;	//Number of intances to draw
+	int m_nInstances = 0;	//Number of intances to draw
 	std::vector<matrix4> m_lToWorld;//List that holds the matrix per object
 
 	/* Constructor */
