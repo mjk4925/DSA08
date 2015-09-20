@@ -1,13 +1,11 @@
-
 /*----------------------------------------------
 Programmer: Alberto Bobadilla (labigm@gmail.com)
-Date: 2015/08
+Date: 2015/09
 ----------------------------------------------*/
 #ifndef __APPLICATION_H_
 #define __APPLICATION_H_
 
 #include "RE\ReEngAppClass.h"
-#include "MyMesh.h"
 #include <SFML\Graphics.hpp>
 //#include <chrono>
 
@@ -17,10 +15,6 @@ class AppClass : public ReEngAppClass
 {
 public:
 	typedef ReEngAppClass super;
-
-	MyMesh* m_pMesh = nullptr;
-	float* m_fMatrixArray = nullptr;
-	int m_nObjects = 200;
 
 	/* Constructor */
 	AppClass(HINSTANCE hInstance, LPWSTR lpCmdLine, int nCmdShow) : super(hInstance, lpCmdLine, nCmdShow) {}

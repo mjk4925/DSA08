@@ -32,7 +32,7 @@ public:
 
 	/*
 	InitApplication
-	Initialize ReEng variables necessary to create the window
+	Initialize ReEng variables necesary to create the window
 	*/
 	virtual void InitApplication(String a_sWindowName);
 
