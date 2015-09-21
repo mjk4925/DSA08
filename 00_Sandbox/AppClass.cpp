@@ -1,14 +1,14 @@
 #include "AppClass.h"
-void AppClass::InitApplication(String a_sWindowName)
+void AppClass::InitWindow(String a_sWindowName)
 {
-	super::InitApplication("Sandbox"); // Window Name
+	super::InitWindow("Sandbox"); // Window Name
 
 	// Set the clear color based on Microsoft's CornflowerBlue (default in XNA)
 	//if this line is in Init Application it will depend on the .cfg file, if it
-	//is on the InitUserVariables it will always force it regardless of the .cfg
+	//is on the InitVariables it will always force it regardless of the .cfg
 	m_v4ClearColor = vector4(0.4f, 0.6f, 0.9f, 0.0f); 
 }
-void AppClass::InitUserVariables(void)
+void AppClass::InitVariables(void)
 {
 }
 

@@ -18,6 +18,7 @@ class ReEngDLL MeshManagerSingleton
 public:
 	MeshDrawerSingleton* m_pMeshDrawer = nullptr;//pointer to the Mesh Drawer singleton
 	PrimitiveManagerSingleton* m_pPrimitiveMngr = nullptr; //pointer to the Primitive Manager singleton
+	LineManagerSingleton* m_pLineManager = nullptr;//Singleton for the Lines manager
 	ModelManagerSingleton* m_pModelMngr = nullptr; //pointer to the Model Manager singleton
 
 	/* Gets/Constructs the singleton pointer */
@@ -51,6 +52,9 @@ public:
 
 	/* Updates the model manager */
 	void Update(bool a_bCheckCollisions = true);
+
+	/* Renders a line on with the specified vectors and color */
+	void AddLineToRenderList(vector3 a_v3Origin, vector3 a_v3Ending, vector3 a_v3Color = REYELLOW);
 
 	/* Renders a mesh on the specified space */
 	void AddMeshToRenderList(MeshClass* a_pMesh, matrix4& a_m4ToWorld);

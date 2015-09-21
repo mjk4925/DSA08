@@ -1,11 +1,11 @@
 #include "AppClass.h"
-void AppClass::InitApplication(String a_sWindowName)
+void AppClass::InitWindow(String a_sWindowName)
 {
-	//Using Base InitApplication method
-	super::InitApplication("LASTNAME, FIRSTNAME - 3D Transformations");
+	//Using Base InitWindow method
+	super::InitWindow("LASTNAME, FIRSTNAME - 3D Transformations");
 }
 
-void AppClass::InitUserVariables(void)
+void AppClass::InitVariables(void)
 {
 	// Set the camera into the initial position
 	m_pCamera->SetUpVector(vector3(0.0f, 0.0f, -1.0f));

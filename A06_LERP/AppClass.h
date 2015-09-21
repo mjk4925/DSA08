@@ -2,8 +2,8 @@
 Programmer: Alberto Bobadilla (labigm@gmail.com)
 Date: 2015/09
 ----------------------------------------------*/
-#ifndef __APPLICATION_H_
-#define __APPLICATION_H_
+#ifndef __A06_LERP_H_
+#define __A06_LERP_H_
 
 #include "RE\ReEngAppClass.h"
 #include <SFML\Graphics.hpp>
@@ -15,8 +15,6 @@ class AppClass : public ReEngAppClass
 {
 	float fDuration = 1.0f;
 
-	std::vector<vector3> m_lPositions; //list of Stops.
-
 public:
 	typedef ReEngAppClass super;
 
@@ -24,17 +22,17 @@ public:
 	AppClass(HINSTANCE hInstance, LPWSTR lpCmdLine, int nCmdShow) : super(hInstance, lpCmdLine, nCmdShow) {}
 
 	/*
-	InitApplication
-	Initialize ReEng variables necesary to create the window
+	InitWindow
+	Initialize ReEng variables necessary to create the window
 	*/
-	virtual void InitApplication(String a_sWindowName);
+	virtual void InitWindow(String a_sWindowName);
 
 	/*
-	InitUserVariables
+	InitVariables
 	Initializes user specific variables, this is executed right after InitApplicationVariables,
 	the purpose of this member function is to initialize member variables specific for this lesson
 	*/
-	virtual void InitUserVariables(void);
+	virtual void InitVariables(void);
 
 	/*
 	Update
@@ -62,4 +60,4 @@ public:
 	virtual void Release(void);
 };
 
-#endif //__APPLICATION_H_
+#endif //__A06_LERP_H_

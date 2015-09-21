@@ -34,6 +34,7 @@ namespace ReEng
 		GLSystemSingleton* m_pGLSystem = nullptr;// Singleton of the OpenGL rendering context
 
 		LightManagerSingleton* m_pLightMngr = nullptr;// Singleton for the Light Manager
+		LineManagerSingleton* m_pLineManager = nullptr;//Singleton for the Lines manager
 		MeshManagerSingleton* m_pMeshMngr = nullptr;//Mesh Manager
 
 		GridClass* m_pGrid = nullptr; // Grid that represents the Coordinate System
@@ -109,10 +110,11 @@ namespace ReEng
 
 			// Get the system singleton
 			m_pSystem = SystemSingleton::GetInstance();
+			//Light manager
+			m_pLightMngr = LightManagerSingleton::GetInstance();
 
 			// Init the App System
-			InitApplication("Rendering Engine");
-			m_pLightMngr = LightManagerSingleton::GetInstance();
+			InitWindow("Rendering Engine");
 
 			// Read the configuration file
 			ReadConfig();
@@ -142,14 +144,32 @@ namespace ReEng
 			// Verify what is the OpenGL rendering context and save it to system (3.x might fail, in which case exit)
 			if (m_pGLSystem->IsNewOpenGLRunning() == false)
 				exit(0);
-#pragma endregion
+#pragma endregion			
+			//Ambient light (Ambient Light is always the first light, or light[0])
+			m_pLightMngr->SetPosition(glm::vec3(0, 0, 0), 0);
+			m_pLightMngr->SetIntensity(0.75f, 0);
+			m_pLightMngr->SetColor(glm::vec3(1, 1, 1), 0);
 
-			// Get the singletons
+			//Point Light (light[1])
+			m_pLightMngr->SetPosition(glm::vec3(0, 0, 10), 1);
+			m_pLightMngr->SetIntensity(5.00f, 1);
+			m_pLightMngr->SetColor(glm::vec3(1, 1, 1), 1);
+
+			// Create a new grid initializing its properties and compiling it
+			m_pGrid = new GridClass();
+
+			// Initializing the Mesh manager
+			m_pMeshMngr = MeshManagerSingleton::GetInstance();
+
+			//Initializing the line manager
+			LineManagerSingleton* m_pLineManager = LineManagerSingleton::GetInstance();
+
+			// Setting the camera position.
 			m_pCamera = CameraSingleton::GetInstance();
+			m_pCamera->SetPosition(vector3(0.0f, 0.5f, 10.0f));
 
 			// Initialize the App Variables
-			InitApplicationVariables();
-			InitUserVariables();
+			InitVariables();
 
 			//Color of the window
 			if (m_pSystem->m_RenderingContext == OPENGL3X)
@@ -270,14 +290,14 @@ namespace ReEng
 		}
 
 		/*
-		InitApplication
-		Initialize ReEng variables necesary to create the window
+		InitWindow
+		Initialize ReEng variables necessary to create the window
 		*/
-		virtual void InitApplication(String a_sWindowName = "ReEng")
+		virtual void InitWindow(String a_sWindowName = "ReEng")
 		{
 			//These are the default values for the windows construction but they will
 			//not have any effect if the .cfg file is present next to the binary folder
-			//(the .cfg will be created if not existant using these values, but once
+			//(the .cfg will be created if not existent using these values, but once
 			//created its values will have priority over these)
 
 			// Indicate window properties
@@ -288,8 +308,8 @@ namespace ReEng
 			m_pSystem->WindowBorderless = false;
 
 			// Set the clear color based on Microsoft's CornflowerBlue (default in XNA)
-			//if this line is in Init Application it will depend on the .cfg file, if it
-			//is on the InitUserVariables it will always force it regardless of the .cfg
+			//if this line is in Init Window it will depend on the .cfg file, if it
+			//is on the InitVariables it will always force it regardless of the .cfg
 			m_v4ClearColor = vector4(0.4f, 0.6f, 0.9f, 0.0f);
 		}
 
@@ -478,36 +498,11 @@ namespace ReEng
 		}
 
 		/*
-		InitApplicationVariables
-		It initializes this application member variables, usually those that
-		are not the focus of the lesson.
-		*/
-		virtual void InitApplicationVariables(void)
-		{
-			//Ambient light (Ambient Light is always the first light, or light[0])
-			m_pLightMngr->SetPosition(glm::vec3(0, 0, 0), 0);
-			m_pLightMngr->SetIntensity(0.75f, 0);
-			m_pLightMngr->SetColor(glm::vec3(1, 1, 1), 0);
-
-			//Point Light (light[1])
-			m_pLightMngr->SetPosition(glm::vec3(0, 0, 10), 1);
-			m_pLightMngr->SetIntensity(5.00f, 1);
-			m_pLightMngr->SetColor(glm::vec3(1, 1, 1), 1);
-
-			// Create a new grid initializing its properties and compiling it
-			m_pGrid = new GridClass();
-
-			m_pMeshMngr = MeshManagerSingleton::GetInstance();
-
-			m_pCamera->SetPosition(vector3(0.0f, 0.5f, 10.0f));
-		}
-
-		/*
-		InitUserVariables
+		InitVariables
 		Initializes user specific variables, this is executed right after InitApplicationVariables,
 		the purpose of this member function is to initialize member variables specific for this lesson
 		*/
-		virtual void InitUserVariables(void){}
+		virtual void InitVariables(void){}
 
 		/*
 		Release

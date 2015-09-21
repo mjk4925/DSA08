@@ -1,11 +1,11 @@
 #include "AppClass.h"
-void AppClass::InitApplication(String a_sWindowName)
+void AppClass::InitWindow(String a_sWindowName)
 {
-	//Using Base InitApplication method
-	super::InitApplication("SFML CONTROLS (Esc to terminate)");
+	//Using Base InitWindow method
+	super::InitWindow("SFML CONTROLS (Esc to terminate)");
 }
 
-void AppClass::InitUserVariables(void)
+void AppClass::InitVariables(void)
 {
 	//Load a model into memory
 	m_pMeshMngr->LoadModel("Minecraft\\MC_Steve.obj", "Steve");

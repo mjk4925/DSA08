@@ -1,11 +1,11 @@
 #include "AppClass.h"
-void AppClass::InitApplication(String a_sWindowName)
+void AppClass::InitWindow(String a_sWindowName)
 {
-	//Using Base InitApplication method
-	super::InitApplication("MyMesh - Mesh Rendering Example");
+	//Using Base InitWindow method
+	super::InitWindow("MyMesh - Mesh Rendering Example");
 }
 
-void AppClass::InitUserVariables(void)
+void AppClass::InitVariables(void)
 {
 	//Reserve Memory for a MyMeshClass object
 	m_pMesh = new MyMesh();
