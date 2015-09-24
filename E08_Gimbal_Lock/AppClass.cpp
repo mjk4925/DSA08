@@ -1,7 +1,7 @@
 #include "AppClass.h"
 void AppClass::InitWindow(String a_sWindowName)
 {
-	super::InitWindow("Sandbox"); // Window Name
+	super::InitWindow("Gimbal Lock"); // Window Name
 
 	// Set the clear color based on Microsoft's CornflowerBlue (default in XNA)
 	//if this line is in Init Application it will depend on the .cfg file, if it
@@ -10,6 +10,15 @@ void AppClass::InitWindow(String a_sWindowName)
 }
 void AppClass::InitVariables(void)
 {
+	//Loading the model
+	m_pMeshMngr->LoadModel("Minecraft\\MC_Steve.obj", "Steve");
+
+	InstanceClass* pSteve = m_pMeshMngr->GetInstanceByName("Steve");
+	
+	if (pSteve != nullptr)
+	{
+		pSteve->SetVisibleAxis(true, false);
+	}
 }
 
 void AppClass::Update(void)
@@ -24,8 +33,19 @@ void AppClass::Update(void)
 	if (m_bFPC == true)
 		CameraRotation();
 
-	//Adds all loaded instance to the render list
-	m_pMeshMngr->AddInstanceToRenderList("ALL");
+	//Rotation matrices
+	matrix4 rotX = glm::rotate(REIDENTITY, m_v3Orientation.x, REAXISX);
+	matrix4 rotY = glm::rotate(REIDENTITY, m_v3Orientation.y, REAXISY);
+	matrix4 rotZ = glm::rotate(REIDENTITY, m_v3Orientation.z, REAXISZ);
+
+	//linear combination
+	m_mToWorld = rotX * rotY * rotZ;
+
+	//Setting the model matrix
+	m_pMeshMngr->SetModelMatrix(m_mToWorld, "Steve");
+
+	//Adding the instance to the render list
+	m_pMeshMngr->AddInstanceToRenderList("Steve");
 }
 
 void AppClass::Display(void)
@@ -34,12 +54,12 @@ void AppClass::Display(void)
 
 	m_pGrid->Render(); //renders the XY grid with a 100% scale
 
-	m_pMeshMngr->Render(); //renders the render list
+	m_pMeshMngr->Render(); //renders the list of meshes in the system.
 
 	m_pGLSystem->GLSwapBuffers(); //Swaps the OpenGL buffers
 }
 
 void AppClass::Release(void)
 {
-	super::Release(); //release the memory of the inherited fields
+	super::Release();
 }
