@@ -13,12 +13,8 @@ void AppClass::InitVariables(void)
 	//Loading the model
 	m_pMeshMngr->LoadModel("Minecraft\\MC_Steve.obj", "Steve");
 
-	InstanceClass* pSteve = m_pMeshMngr->GetInstanceByName("Steve");
-	
-	if (pSteve != nullptr)
-	{
-		pSteve->SetVisibleAxis(true, false);
-	}
+	//Set the axis of Steve visible
+	m_pMeshMngr->SetVisibleAxis(true, "Steve");
 }
 
 void AppClass::Update(void)

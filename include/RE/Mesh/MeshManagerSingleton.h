@@ -125,6 +125,12 @@ public:
 	/* Sets the visibility flag of the Bounding Object */
 	void SetVisibleBoundingObject(bool a_bVisible, int a_nInstanceIndex);
 
+	/* Sets the Axis visible for the specified object */
+	void SetVisibleAxis(bool a_bVisible, String a_sInstanceName = "ALL", bool a_bAllGroups = false);
+
+	/* Sets the Axis visible for the specified object */
+	void SetVisibleAxis(bool a_bVisible, int a_nInstanceIndex, bool a_bAllGroups = false);
+
 	/* Returns a vector4 with the indices of the Instances and groups colliding */
 	std::vector<vector4> GetCollisionList(void);
 

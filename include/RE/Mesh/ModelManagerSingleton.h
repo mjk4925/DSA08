@@ -101,6 +101,9 @@ public:
 
 	/* Sets the visibility of an specified instance axis */
 	void SetVisibleAxis(bool a_bVisible, String a_sInstanceName = "ALL", bool a_bGroups = false);
+
+	/* Sets the visibility of an specified instance axis */
+	void SetVisibleAxis(bool a_bVisible, int a_nInstanceIndex = -1, bool a_bGroups = false);
 	
 	/* Loads the specified level file */
 	void LoadLevel(String a_sFileName);
