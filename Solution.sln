@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "00_Sandbox", "00_Sandbox\00_Sandbox.vcxproj", "{0D690B4A-EEED-45DD-9651-D80BB36C0C76}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E05_Translations", "E05_Translations\E05_Translations.vcxproj", "{4F09402D-EB5F-4150-80D2-BE1FEE68C168}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E08_Gimbal_Lock", "E08_Gimbal_Lock\E08_Gimbal_Lock.vcxproj", "{92E362DA-7A6C-455B-B66E-26379CDD83FB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "A07_SLERP", "A07_SLERP\A07_SLERP.vcxproj", "{EB42F6F9-54E0-4534-A8C7-4CFACA2C489B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{92E362DA-7A6C-455B-B66E-26379CDD83FB}.Debug|Win32.Build.0 = Debug|Win32
 		{92E362DA-7A6C-455B-B66E-26379CDD83FB}.Release|Win32.ActiveCfg = Release|Win32
 		{92E362DA-7A6C-455B-B66E-26379CDD83FB}.Release|Win32.Build.0 = Release|Win32
+		{EB42F6F9-54E0-4534-A8C7-4CFACA2C489B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EB42F6F9-54E0-4534-A8C7-4CFACA2C489B}.Debug|Win32.Build.0 = Debug|Win32
+		{EB42F6F9-54E0-4534-A8C7-4CFACA2C489B}.Release|Win32.ActiveCfg = Release|Win32
+		{EB42F6F9-54E0-4534-A8C7-4CFACA2C489B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

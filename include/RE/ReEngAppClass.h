@@ -34,7 +34,6 @@ namespace ReEng
 		GLSystemSingleton* m_pGLSystem = nullptr;// Singleton of the OpenGL rendering context
 
 		LightManagerSingleton* m_pLightMngr = nullptr;// Singleton for the Light Manager
-		LineManagerSingleton* m_pLineManager = nullptr;//Singleton for the Lines manager
 		MeshManagerSingleton* m_pMeshMngr = nullptr;//Mesh Manager
 
 		GridClass* m_pGrid = nullptr; // Grid that represents the Coordinate System
