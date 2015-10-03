@@ -49,6 +49,16 @@ static float MapValue(T valueToMap, T originalScale_min, T originalScale_max, T 
 }
 
 /*
+	ToMatrix4
+	Will take a glm::quat and return a glm::mat4 wrapping glm::mat4_cast
+*/
+
+static matrix4 ToMatrix4(quaternion a_qInput)
+{
+	return glm::mat4_cast(a_qInput);
+}
+
+/*
 	MapVector
 	Will return a vector mapped in the mappedScale range from a value vectorToMap in the OriginalScale range
 */

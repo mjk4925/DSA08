@@ -20,14 +20,14 @@ void AppClass::Update(void)
 
 	//Is the arcball active?
 	if (m_bArcBall == true)
-		m_m4ArcBall = ArcBall();
+		m_qArcBall = ArcBall();
 
 	//Is the first person camera active?
 	if (m_bFPC == true)
 		CameraRotation();
 
 	//Modify model's ModelToWorld matrix
-	m_pMeshMngr->SetModelMatrix(m_m4ArcBall, "Steve");
+	m_pMeshMngr->SetModelMatrix(ToMatrix4(m_qArcBall), "Steve");
 
 	//Add a model to the render list
 	m_pMeshMngr->AddInstanceToRenderList("Steve");

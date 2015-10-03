@@ -30,6 +30,7 @@ public:
 	/* Loads the specified model file */
 	REERRORS LoadModel (	String a_sFileName,
 							String a_sInstanceName,
+							bool a_bAbsoluteRoute = false,
 							matrix4 a_m4ToWorld = matrix4(1.0),
 							int a_nVisibility = 1,
 							int a_nCollidable = 1,
@@ -125,12 +126,6 @@ public:
 	/* Sets the visibility flag of the Bounding Object */
 	void SetVisibleBoundingObject(bool a_bVisible, int a_nInstanceIndex);
 
-	/* Sets the Axis visible for the specified object */
-	void SetVisibleAxis(bool a_bVisible, String a_sInstanceName = "ALL", bool a_bAllGroups = false);
-
-	/* Sets the Axis visible for the specified object */
-	void SetVisibleAxis(bool a_bVisible, int a_nInstanceIndex, bool a_bAllGroups = false);
-
 	/* Returns a vector4 with the indices of the Instances and groups colliding */
 	std::vector<vector4> GetCollisionList(void);
 
@@ -142,6 +137,9 @@ public:
 
 	/* Sets the shader program of an specific instance by index */
 	void SetShaderProgramByNumber(int a_nInstance = -1, int a_nGroup = -1, String a_sShaderName = "Original", vector3 a_v3Tint = REDEFAULT);
+
+	/* Sets the visibility of the axis of the instance */
+	void SetVisibleAxis(bool a_bVisible, String a_sInstanceName = "ALL", bool a_bAllGroups = false);
 
 	/* Sets the visibility of the hierarchical Bounding Object */
 	void SetVisibleBoundingObjectHierarchy(bool a_bVisible, String a_sInstanceName = "ALL");

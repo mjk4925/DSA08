@@ -81,7 +81,9 @@ public:
 
 	// Window Name Property
 	__declspec(property(get = GetThreaded, put = SetThreaded)) bool Multithreaded;
+	/* Sets the system to be multi-threaded <<<EXPERIMENTAL>>>*/
 	void SetThreaded(bool a_bMultithreaded);
+	/* Asks the system if its multi-threaded*/
 	bool GetThreaded(void);
 
 	/*

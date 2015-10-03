@@ -29,7 +29,7 @@ void AppClass::Update(void)
 
 	//Is the arcball active?
 	if (m_bArcBall == true)
-		m_m4ArcBall = ArcBall();
+		m_qArcBall = ArcBall();
 
 	//Is the first person camera active?
 	if (m_bFPC == true)
@@ -48,7 +48,7 @@ void AppClass::Display(void)
 
 	m_pGrid->Render(1.0f, REAXIS::XY); //renders the grid with a 100% scale
 
-	m_pMesh->Render( m_m4ArcBall );
+	m_pMesh->Render(ToMatrix4(m_qArcBall));
 
 	m_pGLSystem->GLSwapBuffers(); //Swaps the OpenGL buffers
 }

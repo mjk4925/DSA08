@@ -34,12 +34,13 @@ namespace ReEng
 		GLSystemSingleton* m_pGLSystem = nullptr;// Singleton of the OpenGL rendering context
 
 		LightManagerSingleton* m_pLightMngr = nullptr;// Singleton for the Light Manager
+		LineManagerSingleton* m_pLineManager = nullptr;//Singleton for the Lines manager
 		MeshManagerSingleton* m_pMeshMngr = nullptr;//Mesh Manager
 
 		GridClass* m_pGrid = nullptr; // Grid that represents the Coordinate System
 		CameraSingleton* m_pCamera = nullptr; // Singleton for the camera that represents our scene
-		vector4 m_v4ClearColor;//Color of the scene
-		matrix4 m_m4ArcBall;//ArcBall matrix
+		vector4 m_v4ClearColor; //Color of the scene
+		quaternion m_qArcBall; //ArcBall quaternion
 
 	public:
 		/* Constructor - When inheriting do not add into the constructor */
@@ -187,9 +188,9 @@ namespace ReEng
 		a_fSensitivity is a factor of change
 		DO NOT OVERRIDE
 		*/
-		virtual matrix4 ArcBall(float a_fSensitivity = 0.1f) final
+		virtual quaternion ArcBall(float a_fSensitivity = 0.1f) final
 		{
-			static matrix4 arcball;
+			static quaternion qArcBall;
 			UINT	MouseX, MouseY;		// Coordinates for the mouse
 			UINT	CenterX, CenterY;	// Coordinates for the center of the screen.
 
@@ -206,34 +207,31 @@ namespace ReEng
 
 			SetCursorPos(CenterX, CenterY);
 
-			static float fVerticalAngle = 0.0f;
-			static float fHorizontalAngle = 0.0f;
-
 			float fSpeed = 0.001f;
 
 			if (MouseX < CenterX)
 			{
 				DeltaMouse = static_cast<float>(CenterX - MouseX);
-				arcball = glm::rotate(arcball, a_fSensitivity * DeltaMouse, vector3(0.0f, 1.0f, 0.0f));
+				qArcBall = quaternion(vector3(0.0f, glm::radians(a_fSensitivity * DeltaMouse), 0.0f)) * qArcBall;
 			}
 			else if (MouseX > CenterX)
 			{
 				DeltaMouse = static_cast<float>(MouseX - CenterX);
-				arcball = glm::rotate(arcball, -a_fSensitivity * DeltaMouse, vector3(0.0f, 1.0f, 0.0f));
+				qArcBall = quaternion(vector3(0.0f, glm::radians(-a_fSensitivity * DeltaMouse), 0.0f)) * qArcBall;
 			}
 
 			if (MouseY < CenterY)
 			{
 				DeltaMouse = static_cast<float>(CenterY - MouseY);
-				arcball = glm::rotate(arcball, a_fSensitivity * DeltaMouse, vector3(1.0f, 0.0f, 0.0f));
+				qArcBall = quaternion(vector3(glm::radians(-a_fSensitivity * DeltaMouse), 0.0f, 0.0f)) * qArcBall;
 			}
 			else if (MouseY > CenterY)
 			{
 				DeltaMouse = static_cast<float>(MouseY - CenterY);
-				arcball = glm::rotate(arcball, -a_fSensitivity * DeltaMouse, vector3(1.0f, 0.0f, 0.0f));
+				qArcBall = quaternion(vector3(glm::radians(a_fSensitivity * DeltaMouse), 0.0f, 0.0f)) * qArcBall;
 			}
 
-			return arcball;
+			return qArcBall;
 		}
 
 		/*
@@ -528,11 +526,11 @@ namespace ReEng
 			//Update the information on the Mesh manager I will not check for collision detection so the argument is false
 			m_pMeshMngr->Update(false);
 			//Add the sphere to the render queue
-			m_pMeshMngr->AddTorusToQueue(glm::rotate(REIDENTITY, 90.0f, vector3(90.0f, 0.0f, 0.0f)) * m_m4ArcBall, RERED, SOLID | WIRE);
+			m_pMeshMngr->AddTorusToQueue(glm::rotate(REIDENTITY, 90.0f, vector3(90.0f, 0.0f, 0.0f)) * ToMatrix4(m_qArcBall), RERED, SOLID | WIRE);
 
 			//Is the arcball active?
 			if (m_bArcBall == true)
-				m_m4ArcBall = ArcBall();
+				m_qArcBall = ArcBall();
 
 			//Is the first person camera active?
 			if (m_bFPC == true)

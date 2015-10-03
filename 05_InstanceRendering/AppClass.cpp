@@ -39,7 +39,7 @@ void AppClass::Update(void)
 
 	//Is the arcball active?
 	if (m_bArcBall == true)
-		m_m4ArcBall = ArcBall();
+		m_qArcBall = ArcBall();
 
 	//Is the first person camera active?
 	if (m_bFPC == true)

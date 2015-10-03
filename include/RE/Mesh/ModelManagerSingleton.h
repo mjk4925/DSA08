@@ -18,8 +18,8 @@ class ReEngDLL ModelManagerSingleton
 	//Member variables
 	bool m_bVisibleOctree = false; //Visibility of the Octree flag
 
-	int m_nInstances = 0;		//Number of instances
-	int m_nModels = 0;			//Number of models
+	uint m_nInstances = 0;		//Number of instances
+	uint m_nModels = 0;			//Number of models
 
 	static ModelManagerSingleton* m_pInstance;
 	MaterialManagerSingleton* m_pMatMngr = nullptr; //Material Manager pointer
@@ -78,7 +78,7 @@ public:
 	void SetVisibleFrameBoundingObject(bool a_bDebug, int a_nIndex, int a_nGroupIndex);
 	
 	/* Asks the manager for the name of an instance by index returns empty if nothing found */
-	String GetInstanceName(int a_nIndex);
+	String GetInstanceName(uint a_nIndex);
 
 	/*
 		Gets the current state of the model
@@ -94,16 +94,13 @@ public:
 			a_nInstanceIndex: Index of the model to look
 		output: -1 if model does not exist
 	*/
-	int GetCurrentState(int a_nInstanceIndex);
+	int GetCurrentState(uint a_nInstanceIndex);
 
 	/* Sets the next state of the specified instance */
 	void SetNextState(String a_sIntance, int a_nNextState);
 
 	/* Sets the visibility of an specified instance axis */
 	void SetVisibleAxis(bool a_bVisible, String a_sInstanceName = "ALL", bool a_bGroups = false);
-
-	/* Sets the visibility of an specified instance axis */
-	void SetVisibleAxis(bool a_bVisible, int a_nInstanceIndex = -1, bool a_bGroups = false);
 	
 	/* Loads the specified level file */
 	void LoadLevel(String a_sFileName);
@@ -111,6 +108,7 @@ public:
 	/* Loads the specified model file in a separate thread*/
 	REERRORS LoadModel (	String a_sFileName,
 							String a_sInstanceName,
+							bool a_bAbsoluteRoute = false,
 							matrix4 a_m4ToWorld = matrix4(1.0),
 							int a_nVisibility = 1,
 							int a_nCollidable = 1,
@@ -140,8 +138,12 @@ public:
 
 	/* Plays the specified animation */
 	void PlayAnimation(String a_sInstanceName, int a_nSequenceIndex = -1);
-
+	
+	/* Checks if the instance in done animating*/
 	bool IsInstanceInLastFrame(String a_sInstanceName);
+
+	/* Updates the model map*/
+	void UpdateMap(void);
 
 	/* Updates the model manager */
 	void Update(bool a_bCheckCollisions = true);
@@ -154,6 +156,7 @@ public:
 	
 	/* Checks the collision of all the instances (only optimized if GenerateOctree has been previously called*/
 	void CollisionCheck(void);
+
 	/* Responds to the collision of all the instances */
 	void CollisionResponse(void);
 	/*
@@ -197,13 +200,13 @@ public:
 	void UpdatePositionInOctree(int a_nInstance = -1);
 
 	/* Asks the Manager for an instance using the provided index, nullptr if not found*/
-	InstanceClass* GetInstanceByIndex(int a_nIndex);
+	InstanceClass* GetInstanceByIndex(uint a_nIndex);
 
 	/* Asks the Manager for an instance using the provided name, nullptr if not found*/
 	InstanceClass* GetInstanceByName(String a_sInstanceName);
 
 	/* Asks the Manager for an instance using the provided index, nullptr if not found*/
-	ModelClass* GetModelByIndex(int a_nIndex);
+	ModelClass* GetModelByIndex(uint a_nIndex);
 
 	/* Pushes an Instance into the Instance list*/
 	void PushInstance(InstanceClass* a_pInstance);

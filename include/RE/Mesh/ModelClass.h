@@ -58,7 +58,7 @@ public:
 	void Release(void);
 
 	/* Loads an obj file in memory */
-	REERRORS CreateLoadOBJThread(String a_sFileName);
+	REERRORS CreateLoadOBJThread(String a_sFileName, bool a_bAbsoluteRoute);
 
 	/* Swaps the information of one model object into another */
 	void Swap(ModelClass& other);
@@ -134,7 +134,7 @@ public:
 	BoundingObjectClass* GetBoundingObject(int a_nFrame = -1);
 
 	/* Loads a model from an obj file*/
-	REERRORS LoadOBJ(String a_sFileName);
+	REERRORS LoadOBJ(String a_sFileName, bool a_bAbsoluteRoute = false);
 
 private:
 	/* Initializates the model object */
