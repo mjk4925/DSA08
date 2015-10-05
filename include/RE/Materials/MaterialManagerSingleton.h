@@ -38,7 +38,14 @@ public:
 
 	void ReloadMaps(void); //Tries to load all the textures for all of the materials
 
+	/* Gets a copy of the material specified by name */
 	MaterialClass GetMaterialCopy(String a_sName);
+
+	/* Returns the memory location containing the material specified by the name */
+	MaterialClass* GetMaterial(String a_sName);
+
+	/* Returns the memory location containing the material specified by the index */
+	MaterialClass* GetMaterial(uint a_nIndex);
 
 private:
 	MaterialManagerSingleton(void); // Constructor

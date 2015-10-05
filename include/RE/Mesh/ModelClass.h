@@ -23,11 +23,11 @@ class ReEngDLL ModelClass
 	bool m_bVisible = true;	//Visibility flag
 	bool m_bCollidable = false;	//Collidable flag
 
-	int m_nMaterials = 0;	//number of materials
-	int m_nGroups = 0;		//Number of groups
-	int m_nFrames = 0;		//Number of frames
-	int m_nStates = 0;		//Number of states
-	int m_nSequences = 0;	//Number of sequences
+	uint m_nMaterials = 0;	//number of materials
+	uint m_nGroups = 0;		//Number of groups
+	uint m_nFrames = 0;		//Number of frames
+	uint m_nStates = 0;		//Number of states
+	uint m_nSequences = 0;	//Number of sequences
 	int m_nHP = 1;			//Hit point of the model
 
 	SystemSingleton* m_pSystem = nullptr;	//Pointer to the system
@@ -64,14 +64,14 @@ public:
 	void Swap(ModelClass& other);
 
 	/* Asks the model for its number of groups */
-	int GetNumberOfGroups(void);
+	uint GetNumberOfGroups(void);
 	/* Asks the model for its name */
 	String GetName(void);
 	/* Property GetName*/
 	__declspec(property(get = GetName)) String Name;
 
 	/* Asks the Model for a Group by index */
-	GroupClass* GetGroup(int a_nIndex);
+	GroupClass* GetGroup(uint a_nIndex);
 	/* Asks the model identify the index of a group by name, -1 if not found*/
 	int IdentifyGroup( String a_sName);
 
@@ -79,7 +79,7 @@ public:
 	bool IsLoaded(void);
 
 	/* Create a copy of a group by index */
-	bool InstanceGroup(GroupClass* a_TargetGroup, int a_nIndex);
+	bool InstanceGroup(GroupClass* a_TargetGroup, uint a_nIndex);
 
 	/* Binds the Model for opengl 3.x*/
 	void CompileOpenGL3X(void);
@@ -108,20 +108,20 @@ public:
 	std::vector<vector3> GetVertices(int a_nGroup = -1, int a_nMesh = -1);
 
 	/* Get the number of frames of animation in this model */
-	int GetNumberOfFrames(void);
+	uint GetNumberOfFrames(void);
 
 	/* Asks the model for its sequence List */
 	std::vector<SequenceClass*> GetSequenceList(void);
 
 	/* Asks the model for a sequence from its List of sequences */
-	SequenceClass* GetSequence(int a_nSequence);
+	SequenceClass* GetSequence(uint a_nSequence);
 
 	/* Asks the model for its number of states*/
-	int GetNumberOfStates(void);
+	uint GetNumberOfStates(void);
 	/* Asks the model for its number of states*/
-	int GetNumberOfSequences(void);
+	uint GetNumberOfSequences(void);
 	/* Asks the model for a state by index */
-	StateClass* GetState(int a_nState);
+	StateClass* GetState(uint a_nState);
 
 	/* Asks the model the index of the provided state, -1 if not found */
 	int IdentifyState(StateClass* a_pState);
@@ -135,6 +135,9 @@ public:
 
 	/* Loads a model from an obj file*/
 	REERRORS LoadOBJ(String a_sFileName, bool a_bAbsoluteRoute = false);
+
+	/* Saves a loaded model as an ATO file do not add the extension unless absolute route*/
+	REERRORS SaveATO(String a_sFileName, bool a_bAbsoluteRoute);
 
 private:
 	/* Initializates the model object */

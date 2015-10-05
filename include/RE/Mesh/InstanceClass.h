@@ -26,7 +26,7 @@ class ReEngDLL InstanceClass
 	int m_nStateCurrent = 0;	//Current state
 	int m_nStateNext = 0;		//Next state to visit
 	int m_nHP = 1;				//Hit Points of the Instance
-	int m_nCurrentFrame = 0;	//Current frame to be rendered
+	uint m_nCurrentFrame = 0;	//Current frame to be rendered
 
 	float m_fLastFrameDrawn = 0.0f; //Last frame rendered
 
@@ -117,9 +117,9 @@ public:
 	void PlayAnimation(int a_nSequenceIndex = -1);
 
 	/* Sets the next state of the instance */
-	void SetNextState(int a_nNext);
+	void SetNextState(uint a_nNext);
 	/* Sets the current state of the instance (it forces the switch) */
-	void SetCurrentSate(int a_nState);
+	void SetCurrentSate(uint a_nState);
 
 	/* Change the shader program of a group finding it by name */
 	void SetGroupShaderByName(String a_sProgramName = "Original", String a_sGroupName = "ALL", vector3 a_v3Tint = REDEFAULT);

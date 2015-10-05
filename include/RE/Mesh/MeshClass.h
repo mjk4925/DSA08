@@ -22,7 +22,7 @@ protected:
 	bool m_bBinded = false; //Binded flag
 	bool m_bCopy = false;	//Checks to see if this Mesh is a copy or the original
 	bool m_bWire = false;	//Checks to see if the Mesh is going to be drawn in wires
-	int m_nVertexCount = 0; //Number of Vertices in this Mesh
+	int m_nVertexCount = 0; //Number of vertices in this Mesh
 	int m_nMaterial = 0; //Material index of this mesh
 
 	GLuint m_vao = 0;			//OpenGL Vertex Array Object
@@ -85,12 +85,13 @@ public:
 	/* Returns the total number of vertices in this Mesh */
 	int GetVertexTotal(void);
 
+	/* Property SetMaterialIndex/GetMaterialIndex */
+	__declspec(property(put = SetMaterialIndex, get = GetMaterialIndex)) int MaterialIndex;
 	/* Sets the material index by index in the material manager */
 	void SetMaterialIndex(int a_nIndex);
 	/* Gets the material used in the shape by index of the material manager */
 	int GetMaterialIndex(void);
-	/* Property SetMaterialIndex/GetMaterialIndex */
-	__declspec(property(put = SetMaterialIndex, get = GetMaterialIndex)) int MaterialIndex;
+	
 
 	/* Asks the mesh for the Shader program used */
 	GLuint GetShaderIndex (void);
@@ -115,6 +116,21 @@ public:
 
 	/* Asks the shape for the list of vertices */
 	std::vector<vector3> GetVertices(void);
+
+	/* Asks the shape for the list of Color vertices */
+	std::vector<vector3> GetColor(void);
+
+	/* Asks the shape for the list of UV vertices */
+	std::vector<vector3> GetUVs(void);
+
+	/* Asks the shape for the list of Normal vertices */
+	std::vector<vector3> GetNormals(void);
+
+	/* Asks the shape for the list of tangents */
+	std::vector<vector3> GetTangents(void);
+
+	/* Asks the shape for the list of bitangents */
+	std::vector<vector3> GetBitangets(void);
 
 	/* Asks the Mesh for its name */
 	String GetName(void);

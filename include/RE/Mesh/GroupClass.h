@@ -25,7 +25,7 @@ class ReEngDLL GroupClass
 
 	int m_nShapes = 0;		//number of shapes in this group
 	int m_nHP = 0;			//Hit Points of this group
-	int m_nFrames = 0;		//Frames in this group
+	uint m_nFrames = 0;		//Frames in this group
 	
 	SystemSingleton* m_pSystem = nullptr;	//System pointer
 	MaterialManagerSingleton* m_pMatMngr = nullptr;//Material Manager Pointer
@@ -35,8 +35,8 @@ class ReEngDLL GroupClass
 	BoundingObjectClass* m_pBO = nullptr;	//Bounding Object of the group
 	AxisClass* m_pAxis = nullptr;		//Axis of the group
 	
-	String m_sName;			//Name of the group
-	String m_sParent;		//Name of the parent of the group
+	String m_sName = "NULL";			//Name of the group
+	String m_sParent = "NULL";		//Name of the parent of the group
 
 	vector3 m_v3Pivot;		//Point in which the point is going to rotate around
 	matrix4 m_m4ToWorld;	//Model to world matrix
@@ -100,6 +100,8 @@ public:
 	String GetParentName(void);
 	void SetParentName(String a_sParent);
 
+	FrameClass GetFrame(uint nFrame);
+
 	void SetGlobalized(bool a_bGlobalized);
 
 	int GetNumberOfFrames(void);
@@ -137,7 +139,7 @@ public:
 
 	std::vector<vector3> GetVertices(int a_nShape = -1);
 
-	void Update(int a_nFrame, matrix4 a_mToWorld);
+	void Update(uint a_nFrame, matrix4 a_mToWorld);
 
 	BoundingObjectClass* GetBoundingObject(void);
 	void CompileBoundingObject(void);
@@ -148,7 +150,7 @@ public:
 
 	void SetModelMatrix(matrix4 a_nMatrix);
 
-	void AddToRenderList(int a_nFrame = 0);//Add all shapes to the render list
+	void AddToRenderList(uint a_nFrame = 0);//Add all shapes to the render list
 	void AddBOToRenderList(bool a_bForce = false);//Render all debug
 	void AddAxisToRenderList(bool a_bForce = false);//Render all debug
 

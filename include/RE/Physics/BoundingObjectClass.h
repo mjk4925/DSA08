@@ -176,7 +176,7 @@ public:
 	/*
 	Gets the name of the Bounding Object
 	*/
-	String Getname(void);
+	String GetName(void);
 
 	/*
 		Sets the current object to know its in the specified octant

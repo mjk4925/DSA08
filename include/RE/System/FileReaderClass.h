@@ -35,8 +35,25 @@ public:
 
 	/* Reads Files and allocates it on the string */
 	REERRORS ReadFile(String a_sFileName);
+
+	/* Saves a file with the specified name and location */
+	REERRORS SaveFile(String a_sFileName);
+
 	/* closes the file */
 	void CloseFile(void);
+
+	/* writes a line of the file and saves it in the string */
+	REERRORS WriteLine(String a_sStringInput);
+
+	/* writes a line of the file and saves it in the char array */
+	REERRORS WriteLine(const char * _Format, ...);
+	
+	/* writes on the same line of the file and saves it in the string */
+	REERRORS Write(String a_sStringInput);
+
+	/* writes on the same line of the file and saves it in the char array */
+	REERRORS Write(const char * _Format, ...);
+
 	/* reads a line of the file and saves it in the string */
 	REERRORS ReadNextLine(bool a_bSkipComments = true);
 	/* 

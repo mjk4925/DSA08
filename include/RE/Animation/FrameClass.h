@@ -58,6 +58,13 @@ public:
 	void SetSizeY( float a_fValue );
 	void SetSizeZ( float a_fValue );
 
+	/* Gets the Position */
+	vector3 GetPos(void);
+	/* Gets the Rotation */
+	vector3 GetAng(void);
+	/* Gets the Scale */
+	vector3 GetSize(void);
+
 	float GetPosX( void );
 	float GetPosY( void );
 	float GetPosZ( void );

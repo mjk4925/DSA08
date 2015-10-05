@@ -105,6 +105,9 @@ public:
 	/* Loads the specified level file */
 	void LoadLevel(String a_sFileName);
 
+	/* Saves the model as a ATO do not add the extension unless it's an absolute route*/
+	REERRORS SaveATO(String a_sFileName, bool a_bAbsoluteRoute, String a_sInstance);
+
 	/* Loads the specified model file in a separate thread*/
 	REERRORS LoadModel (	String a_sFileName,
 							String a_sInstanceName,
